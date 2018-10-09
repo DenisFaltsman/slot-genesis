@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/slot', 'SlotController@index');
+
+Route::get('/show/lazy/{lazy}/available/{available}', ['uses' =>'SlotController@show']);
