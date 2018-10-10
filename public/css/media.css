@@ -1,0 +1,8 @@
+@media only screen and (max-width: 600px) {
+    .controlBlock .showAdv {
+        width: 50px;
+        margin: 0 auto;
+        font-size: 9px;
+        height: auto;
+    }
+}

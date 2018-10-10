@@ -1,0 +1,76 @@
+.wrap {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+}
+.wrap > div {
+    height: 500px;
+}
+.textBlock {
+    width: 698px;
+    margin: 0 8px 8px 0;
+    line-height: 22px;
+}
+.sidebar {
+    width: 300px;
+    margin: 0 0 0 8px;
+    padding: 0 1px;
+}
+.controlBlock {
+    margin-bottom: 16px;
+    padding-bottom: 20px;
+    outline: 1px solid #000;
+}
+.controlBlock h2,
+.controlBlock > div {
+    margin-left: 20px;
+    display: flex;
+}
+.controlBlock h2 {
+    margin-top: 0;
+    padding-top: 12px;
+    font-family: sans-serif;
+}
+.controlBlock label {
+    cursor: pointer;
+    margin-bottom: 20px;
+    width: 40px;
+    vertical-align: super;
+}
+.controlBlock input {
+    margin-left: 10px;
+}
+.slot {
+    min-height: 200px;
+    padding: 8px;
+    outline: 1px solid #000;
+    display: none;
+}
+.slot div {
+    margin-bottom: 5px;
+}
+.controlBlock .showAdv {
+    width: 80px;
+    text-align: left;
+    background: green;
+    padding: 5px 10px;
+    text-transform: uppercase;
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    display: none;
+}
+.showAdv:hover {
+    cursor: pointer;
+    color: #fff;
+    background: #000;
+}
+.controlBlock .showAdv.hide,
+.hide {
+    display: none;
+}
+.slot.show,
+.controlBlock .showAdv.show {
+    display: block;
+}

@@ -12,9 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
-Route::get('/slot', 'SlotController@index');
-
-Route::get('/show/lazy/{lazy}/available/{available}', ['uses' =>'SlotController@show']);
+Route::get('slot/process/{data?}', 'SlotController@process');
+Route::post('slot/process/{data?}', 'SlotController@process');

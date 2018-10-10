@@ -9,19 +9,46 @@
 namespace App\Http\Controllers;
 
 
-class SlotController
+use App\Models\Slot;
+use Illuminate\Http\Request;
+
+class SlotController extends Controller
 {
-    /**
-     * @return string
+    /*
+     * @const Banner One
      */
-    public function index()
-    {
-        return 'Hi Denis';
-    }
+    protected const BANNER_ID = 'banner1';
 
+    /*
+     * @const KEYS
+     */
+    protected const UPDATE_KEYS = ['isLazy', 'isAvailable'];
 
-    public function show(int $lazy, int $available)
+    /**
+     * @param Request $request
+     */
+    public function process(Request $request)
     {
-        return 'This controller with lazy: ' . $lazy . ' and available : ' . $available;
+        $requestData = $request->all();
+        $slotEntity = Slot::where('slotElementId', '=', self::BANNER_ID);
+
+        if (!$requestData) {
+            $data = $slotEntity->get()->first();
+            echo json_encode($data);
+            exit;
+        }
+
+        $key = key($requestData);
+        if (in_array($key, self::UPDATE_KEYS)) {
+            $this->validate($request, [
+                $key => 'boolean',
+            ]);
+            try {
+                $slotEntity->update([$key => $request[$key]]);
+            } catch (\Exception $e) {
+                echo $e->getMessage();
+            }
+            exit;
+        }
     }
 }
